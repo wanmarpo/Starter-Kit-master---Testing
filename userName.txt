@@ -1,0 +1,4 @@
+naim.txt
+iwan.txt
+adam.txt
+amin.txt
