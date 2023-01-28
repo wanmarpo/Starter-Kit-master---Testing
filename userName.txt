@@ -1,4 +1,8 @@
-naim.txt
-iwan.txt
+
 adam.txt
 amin.txt
+farris.txt
+zharfan.txt
+mior.txt
+aiman.txt
+
