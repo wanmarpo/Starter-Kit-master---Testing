@@ -14,7 +14,7 @@ Please provide the YouTube link to your [Video Demo](https://youtube.com).
 ## User Manual
 
 Please provide the user manual on how to use your program.
-![Camsys](Screenshot 2023-01-19 152241.png)
+
 
 ## Progress Log
 
