@@ -40,6 +40,7 @@ void changeSettings(int &x_axis, int &y_axis, int &zombie)
     cout << " _________________________________________ " << endl;
     cout << "|             Zombies Settings            |" << endl;
     cout << " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ " << endl;
+    cout << "You can enter up to 9 zombies only! " << endl;
     cout << " Enter number of zombies        =>  ";
     cin >> zombie;
     cout << endl;
