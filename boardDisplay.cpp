@@ -6,9 +6,6 @@
 #include <iomanip>
 using namespace std;
 
-// x_axis is row
-// y_axis is colomn
-
 class Board
 {
 private:
