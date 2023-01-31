@@ -44,3 +44,5 @@ Describe the additional features that has been implemented.
 2. "control reaches end of non-void function [-Wreturn-type]" error appear inside  
    "newGame.cpp" and "loadGame.cpp"
 3. Restrict new user from entering names which are alredy existed in the userName.txt file
+4. Input number of zombies over 9 or 0. Create a new function to accept only number > 0 && number < 9
+5. Number of rows and columns of board display is different from the user input. The parameter dimX_ of for loop to create rows was mistakenly switched with dimY_ so    we switch it back.
