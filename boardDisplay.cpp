@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include "attribute.cpp"
+#include "mainCommand.cpp"
 using namespace std;
 
 class Board
@@ -11,10 +13,11 @@ class Board
 private:
     vector<vector<char>> map_;
     int dimX_, dimY_;
+    alienAttribute alienStatus;  
 
 public:
     void init(int x_axis, int y_axis);
-    void display() const;
+    void display();
     void setObject(int col, int row, char object);
 };
 
@@ -22,9 +25,8 @@ void Board::init(int x_axis, int y_axis)
 {
     dimX_ = x_axis;
     dimY_ = y_axis;
-    char objects[] = {' ', ' ', ' ', 'h', 'r', 'p', '>', '<', '^', 'v'};
-    char alien[] = {'A'};
-    int noOfObjects = 10;
+    char objects[] = {' ',' ',' ',' ',' ',' ', ' ', ' ', 'h', 'r', 'p', '>', '<', '^', 'v'};
+    int noOfObjects = 15;
 
     map_.resize(dimX_);
     for (int i = 0; i < dimX_; ++i)
@@ -41,14 +43,12 @@ void Board::init(int x_axis, int y_axis)
         }
     }
 
-    int m;
-    int n;
-    m = (dimX_ - 1) / 2;
-    n = (dimY_ - 1) / 2;
-    map_[m][n] = alien[0];
+    alienStatus.coorX = (dimX_-1)/2;
+    alienStatus.coorY = (dimY_-1)/2;
+    map_[alienStatus.coorX][alienStatus.coorY] = 'A';
 }
 
-void Board::display() const
+void Board::display() 
 {
     cout << "   T+>>>>>>>>>>>>>>>[#]<<<<<<<<<<<<<<<+T" << endl;
     cout << "   ||>        ALIEN V/S ZOMBIE       <|| " << endl;
@@ -57,14 +57,14 @@ void Board::display() const
 
     for (int i = 0; i < dimX_; ++i)
     {
-        cout << "  ";
+        cout << "   ";
         for (int j = 0; j < dimY_; ++j)
         {
             cout << "+-";
         }
         cout << "+" << endl;
 
-        cout << setw(2) << (i + 1);
+        cout << setw(2) << (i + 1) << " ";
 
         for (int j = 0; j < dimY_; ++j)
         {
@@ -73,7 +73,7 @@ void Board::display() const
         cout << "|" << endl;
     }
 
-    cout << "  ";
+    cout << "   ";
     for (int j = 0; j < dimY_; ++j)
     {
         cout << "+-";
@@ -91,18 +91,27 @@ void Board::display() const
             cout << digit;
     }
     cout << endl;
-    cout << "  ";
+    cout << "   ";
     for (int j = 0; j < dimY_; ++j)
     {
         cout << " " << (j + 1) % 10;
     }
     cout << endl
          << endl;
+    
+    alienStatus.attributeDisplay();
+    cout << endl
+        << endl;
+    while( alienStatus.health > 0 ){
+    mainCommand();
+    }
 }
 
 void displayBoard(int x_axis, int y_axis)
 {
     Board board;
+    alienAttribute alienStatus;
     board.init(x_axis, y_axis);
     board.display();
+    
 }
